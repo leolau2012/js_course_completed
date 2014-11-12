@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>敏感词过滤</title>
+</head>
+<body>
+    <textarea cols="60" rows="20" placeholder="请输入作者很帅，就是很帅，确实很帅，
+    为什么那么帅？" id="oTxt1">请输入作者很帅，就是很帅，确实很帅，点击替换后会把很帅替换成，特别帅</textarea>
+    <input type="button" value="替换" id="replace">
+    <textarea cols="60" rows="20" id="oTxt2"></textarea>
+    <script>
+        window.onload = function(){
+            replace.onclick = function(){
+                var str = oTxt1.value;
+                var re = /帅|很帅/g;
+                str = str.replace(re,'*');
+                oTxt2.value = str;
+            };
+        };
+    </script>
+</body>
+</html>

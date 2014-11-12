@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+           // [1-9]\d{d}//电话
+           // {m,n}
+           //[1-9]\d{4,10}
+           //{n,}
+           //固定电话
+           //(0\d{2,3-)?[1-9]\d{7}(-\d{1,5})?
+          //邮箱
+                      //   /^w+@[a-z0-9]+\.[a-z]+$/i;
+            //            1 Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+            //  2 域名：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?
+            //  3 InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$
+            //  4 手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+            //  5 电话号码("XXX-XXXXXXX"、"XXXX-XXXXXXXX"、"XXX-XXXXXXX"、"XXX-XXXXXXXX"、"XXXXXXX"和"XXXXXXXX)：^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$ 
+            //  6 国内电话号码(0511-4405222、021-87888822)：\d{3}-\d{8}|\d{4}-\d{7}
+            //  7 身份证号(15位、18位数字)：^\d{15}|\d{18}$
+            //  8 短身份证号码(数字、字母x结尾)：^([0-9]){7,18}(x|X)?$ 或 ^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$
+            //  9 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+            // 10 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w{5,17}$
+            // 11 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$  
+            // 12 日期格式：^\d{4}-\d{1,2}-\d{1,2}
+            var oTxt1 =document.getElementById('txt1');
+            var oTxt2 =document.getElementById('txt2');
+            var oBtn =  document.getElementById('btn');
+            oBtn.onclick = function(){
+                var re = oTxt1.value;
+                var testStr = oTxt2.value;
+                if(testReg(re,testStr)){
+                    alert('亲，你的正则表达式写对了！');
+                }else{
+
+                    alert('你丫的写错了');
+
+                }
+
+            };
+           
+            function testReg(re,str){
+                var re = eval(re);
+              if(re.test(str)){
+                return true;
+              }else{
+                return false;
+              }
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <textarea cols="60" rows="20" placeholder="请输入正则表达式,格式 ^\w+@[a-z0-9]+\.[a-z]+$/i" id="txt1">/^\w+@[a-z0-9]+\.[a-z]+$/i
+    </textarea>
+    <input type="button" value="校验" id="btn">
+    <textarea cols="60" rows="20" id="txt2" placeholder="请输入测试字符，例如1195677851@qq.com"></textarea>
+</body>
+</html>

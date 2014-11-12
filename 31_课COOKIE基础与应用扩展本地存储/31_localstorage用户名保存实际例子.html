@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记录用户名</title>
+    <script>
+        window.onload = function(){
+            // localstorage 一直保存  sessionstorage 会话结束
+          var oForm = document.getElementById('frm');
+          var usr = document.getElementsByName('usr')[0];
+          alert(localStorage.getItem('username'));
+          oForm.onsubmit = function(){
+               if(window.localStorage){
+                    // localStorage.username = usr.value;
+                    // localStorage[username] = usr.value;
+                    localStorage.setItem('username',usr.value);//推荐
+                     // localStorage.clear();
+                }else{
+                    alert('This browser does NOT support localStorage');
+                }
+          };
+        };
+    </script>
+</head>
+<body>
+    <form id="frm" action="http://www.wpdic.com">
+        姓名：<input type="text" name="usr"><br>
+        密码：<input type="password" name="pwd"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

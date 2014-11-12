@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            /*
+                1.复习字符串基本操作
+                    记忆方法：CS3(charAt split substring search)
+             */
+            var str = 'wpdic.com';
+            console.log("wpdic.com中第四个字符是:"+str.charAt(3));
+            console.log("wpdic.com中的i的位置是:"+str.search('i'));
+            console.log("wpdic.com用.分割成数组"+str.split('.'));
+            console.log("wpdic.com中切割4-6的字符:"+str.substring(3,6));//从零开始计算首字母，不包含右边界
+            // 正则的用途：找东西
+            //几个常用的东西数字字母下划线
+            var fuckStr = 'Mid5633203e0kpofew09e309re32fdflkja&#(@*(@(*R&(*&82 390-21i 0fssdjfalk';
+            var re = /m/i;//ignore\
+             var gameOverStr = fuckStr.search(re);
+             console.log(gameOverStr);
+             //match方法
+            var re2 = /\d+/g;
+           // var gameOverStr2 = fuckStr.search(re2);
+           var gameOverStr2 = fuckStr.match(re2);
+           // alert(gameOverStr2);
+           //replace
+           //
+            var fuckStr3 = 'aa 33bb 4 4c44';
+
+            var re3 = /\d+/g;
+           // var gameOverStr2 = fuckStr.search(re2);
+           var gameOverStr3 = fuckStr3.replace(re3,'*');
+           alert(gameOverStr3);
+        };
+    </script>
+</head>
+<body>
+
+
+    
+</body>
+</html>

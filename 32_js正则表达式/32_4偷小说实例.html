@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[]的使用]</title>
+    <script>
+          window.onload = function(){
+
+              //或，排除，范围
+              var str = '<div class="bd"><div class="Line"></div><div id="Cnt-Main-Article-QQ" style="position: \
+              ive;"><p>　　杰克·韦尔奇(Jack Welch)的名望，震撼着全球企业界。他在美国通用电器公司(\
+                eneral Electric Company，GE)的经历，给 </p><p></p>';
+              // var re = /[jap]sp+/g;
+               // var re = /[jap]sp+/g;
+               var re = /<[^<>]+>/g;
+
+              alert(str.replace(re,''));
+          };
+      </script>  
+</head>
+<body>
+    
+</body>
+</html>

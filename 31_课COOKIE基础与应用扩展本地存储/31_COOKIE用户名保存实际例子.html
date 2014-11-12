@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记录用户名</title>
+    <script>
+        window.onload = function(){
+            // cookie设置，cookie的增删查
+            //键值对，过期时间
+           function setCookie(name,value,iDay){
+                var oDate = new Date();
+                oDate.setDate(oDate.getDate()+iDay);
+                document.cookie=name+'='+value+';expires='+oDate;
+           }          
+           function getCookie(name){
+               arr = document.cookie.split('; ');
+               for(var i = 0;i<arr.length;i++){
+                    var arr2 = arr[i].split('=');
+                    if(arr2[0]==name){
+                        return arr2[1]
+                    }
+               }
+               return '';
+           }
+          var oForm = document.getElementById('frm');
+          var usr = document.getElementsByName('usr')[0];
+                    usr.value = getCookie('username');
+
+          oForm.onsubmit = function(){
+               setCookie('username',usr.value,14);
+          };
+        };
+    </script>
+</head>
+<body>
+    <form id="frm" action="http://www.wpdic.com">
+        姓名：<input type="text" name="usr"><br>
+        密码：<input type="password" name="pwd"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
